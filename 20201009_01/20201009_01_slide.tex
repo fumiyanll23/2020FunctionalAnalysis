@@ -1,0 +1,265 @@
+%%% title page
+\begin{frame}
+	\titlepage
+\end{frame}
+
+\begin{frame}[fragile]
+  \frametitle{Contents}
+	\tableofcontents
+\end{frame}
+% set section counter
+\setcounter{section}{0}
+\section{Limit of Sequence of Real Numbers and Vector Spaces}
+\subsection{Limit of Sequence of Real Numbers}
+\begin{frame}[fragile]
+  \begin{defi}[convergence of sequence of real numbers]
+    Let $(a_n)_{n=1}^\infty$ be a sequence of real numbers.
+    Then,\\
+    \begin{align*}
+      & (a_n)_{n=1}^\infty\ \mbox{{\bf converges} to}\ \alpha\in\mathbb R\\
+      & \overset{\mathrm{def}}{\Leftrightarrow}\forall \varepsilon > 0, \exists N(\varepsilon)\in {\mathbb N}\ \mbox{s.t.}\ \forall n\geq N(\varepsilon)\Rightarrow\left|a_n-\alpha\right|<\varepsilon.
+    \end{align*}
+    One writes
+    \[
+      \lim_{n\to\infty}a_n=\alpha\ \mbox{or}\ a_n\to\alpha\ (n\to\infty).
+    \]
+  	Then, $\alpha$ is a {\bf limit} of $(a_n)_{n=1}^\infty$.
+  	If $(a_n)_{n=1}^\infty$ does not converge, we say $(a_n)_{n=1}^\infty$ {\bf diverges}.
+  \end{defi}
+\end{frame}
+%%% comment
+\begin{comment}
+\begin{frame}[fragile]
+	\begin{axio}[Weierstrass(1815-1897)]
+    For all upper bounded subset $A\subset R$, {\bf supremum} $\sup A\in R$ exists.
+    Similarly, for all lower bounded sbuset $A\subset R$, {\bf infimum} $\inf A\in R$ exists.
+  \end{axio}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{exer}[convergent sequences are bounded]
+    A sequence of real numbers $(a_n)_{n=1}^\infty$ converges the real number $\alpha\in\mathbb R$.
+    Prove that $(a_n)_{n=1}^\infty$ is (upper and lower) bounded.
+  \end{exer}
+\end{frame}
+\end{comment}
+
+\begin{frame}[fragile]
+  \begin{proper}
+    \begin{enumerate}
+      \item[(a)] (convergence of monotone bounded sequences)\\
+      Let $(a_n)_{n=1}^\infty$ be a sequence of real numbers. Then,
+      \begin{align*}
+        & (a_n)_{n=1}^\infty\ \mbox{is a {\bf monotonically increasing (decreaing) sequence}}\\
+        & \overset{\mathrm{def}}{\Leftrightarrow}\forall n, a_n\leq a_{n+1}\ (a_n\geq a_{n+1}).
+      \end{align*}
+      For all monotone sequences of real numbers $(a_n)_{n=1}^\infty$,
+      \[
+        (a_n)_{n=1}^\infty\ \mbox{converges}\ \Leftrightarrow (a_n)_{n=1}^\infty\ \mbox{is bounded}.
+      \]
+      Especially, if $(a_n)_{n=1}^\infty$ is bounded monotonically increasing (decreaing) sequence,
+      \[
+        \lim_{n\to\infty}a_n = \sup a_n\ (\lim_{n\to\infty}a_n = \inf a_n).
+      \]
+    \end{enumerate}
+  \end{proper}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{proper}
+    \begin{enumerate}
+      \item[(b)] (Cauchy(1789-1857))\\
+      Let $(a_n)_{n=1}^\infty$ be a sequence of real numbers. Then,
+      \begin{align*}
+        & (a_n)_{n=1}^\infty, \exists\alpha\in\mathbb{R}, (a_n)_{n=1}^\infty\ \mbox{converges}\ \alpha\\
+        & \Leftrightarrow(a_n)_{n=1}^\infty, \forall\varepsilon >0, \exists N(\varepsilon)\in\mathbb{N},
+        N(\varepsilon)\leq n, m\Rightarrow|a_n-a_m|<\varepsilon.
+      \end{align*}
+    \end{enumerate}
+  \end{proper}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{defi}[limit superior and limit inferior]
+    For all sequences of real numbers $(a_n)_{n=1}^\infty$,
+    \begin{enumerate}
+      \item[(a)] We define {\bf limit superior} $\displaystyle\limsup_{n\to\infty}a_n$ as follows:
+      \begin{enumerate}
+        \item[(i)] If $(a_n)_{n=1}^\infty$ is not upper bounded,
+        \[
+          \displaystyle\limsup_{n\to\infty}a_n\coloneqq +\infty.
+        \]
+        \item[(ii)] If $(a_n)_{n=1}^\infty$ is upper bounded, we define a new sequence $(\check{a}_p)_{p=1}^\infty$ as follows:
+        \footnotesize
+        \[
+          (\check{a}_p)_{p=1}^\infty\coloneqq\sup\{a_n\mid n\geq p\} = \sup\{a_p,a_{p+1},\ldots\},
+        \]
+        \normalsize
+        and define $\displaystyle\limsup_{n\to\infty}a_n$ as follows:
+        \footnotesize
+        \[
+          \displaystyle\limsup_{n\to\infty}a_n = \begin{cases}
+            \lim_{p\to\infty}\check{a}_p & ((\check{a}_p)_{p=1}^\infty\ \mbox{is lower bounded})\\
+            -\infty & ((\check{a}_p)_{p=1}^\infty\ \mbox{is not lower bounded}).
+          \end{cases}
+        \]
+        \normalsize
+      \end{enumerate}
+    \end{enumerate}
+  \end{defi}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{defi}[limit superior and limit inferior]
+    \begin{enumerate}
+      \item[(b)] Similarly, we define {\bf limit inferior} $\displaystyle\liminf_{n\to\infty}a_n$ as follows:
+      \begin{enumerate}
+        \item[(i)] If $(a_n)_{n=1}^\infty$ is not lower bounded,
+        \[
+          \displaystyle\liminf_{n\to\infty}a_n\coloneqq -\infty.
+        \]
+        \item[(ii)] If $(a_n)_{n=1}^\infty$ is lower bounded, we define a new sequence $(\check{a}_p)_{p=1}^\infty$ as follows:
+        \[
+          (\check{a}_p)_{p=1}^\infty\coloneqq\sup\{a_n\mid n\geq p\} = \inf\{a_p,a_{p+1},\ldots\},
+        \]
+        and define $\displaystyle\liminf_{n\to\infty}a_n$ as follows:
+        \[
+          \displaystyle\liminf_{n\to\infty}a_n = \begin{cases}
+            \displaystyle\lim_{p\to\infty}\check{a}_p & ((\check{a}_p)_{p=1}^\infty\ \mbox{is upper bounded})\\
+            +\infty & ((\check{a}_p)_{p=1}^\infty\ \mbox{is not upper bounded}).
+          \end{cases}
+        \]
+      \end{enumerate}
+    \end{enumerate}
+  \end{defi}
+\end{frame}
+
+\subsection{Vector Spaces}
+\begin{frame}[fragile]
+  \begin{defi}[vector spaces over real number field]
+    Let $X$ be a set with 2 {\bf linear operators} (addition $"+"$ and scalar multiplication $"\cdot"$).
+    We call that set $X$ is a {\bf vector space over $\mathbb{R}$} or {\bf linear space over $\mathbb{R}$} if set $X$ satisfies the following conditions:
+    \begin{description}
+      \item[(a)] Axiom of commutative group and the following conditions are satisfied.
+      $\forall\boldsymbol{x}, \boldsymbol{y}, \boldsymbol{z}\in X$,
+      \begin{enumerate}
+        \item[(i)] $(\boldsymbol{x}+\boldsymbol{y})+\boldsymbol{z} = \boldsymbol{x}+(\boldsymbol{y}+\boldsymbol{z})$ (associativity 1),
+        \item[(ii)] $\boldsymbol{x}+\boldsymbol{y} = \boldsymbol{y}+\boldsymbol{x}$ (commutativity),
+        \item[(iii)] $\forall\boldsymbol{x}\in X,\ \exists\boldsymbol{0}\in X\ \mbox{s.t.}\ \boldsymbol{0}+\boldsymbol{x} = \boldsymbol{x}+\boldsymbol{0} = \boldsymbol{x}$ (existence of identity element of addition),
+        \item[(iv)] $\forall\boldsymbol{x}\in X,\ \exists\boldsymbol{x}^{-1}\ \mbox{s.t.}\ \boldsymbol{x}+\boldsymbol{x}^{-1} = \boldsymbol{x}^{-1}+\boldsymbol{x} = \boldsymbol{0}$ (existence of inverse elements of addition).
+        We denote $\boldsymbol{x}^{-1}$ by $-\boldsymbol{x}$.
+      \end{enumerate}
+    \end{description}
+  \end{defi}
+\end{frame}
+
+\begin{frame}[fragile]
+  \begin{defi}[vector spaces over real number field]
+    \begin{description}
+      \item[(b)] Axiom of scalar multiplication and the following conditions are satisfied.
+      $\forall\alpha, \beta\in\mathbb{R}, \forall\boldsymbol{x}, \boldsymbol{y}\in X$,
+      \begin{enumerate}
+        \item[(i)] $\alpha\cdot(\boldsymbol{x}+\boldsymbol{y}) = \alpha\cdot\boldsymbol{x}+\alpha\cdot\boldsymbol{y}$ (distributivity 1),
+        \item[(ii)] $(\alpha +\beta)\cdot\boldsymbol{x} = \alpha\cdot\boldsymbol{x}+\beta\cdot\boldsymbol{x}$ (distributivity 2),
+        \item[(iii)] $\alpha\cdot(\beta\cdot\boldsymbol{x}) = (\alpha\cdot\beta)\cdot\boldsymbol{x}$ (associativity 2),
+        \item[(iv)] $\forall\boldsymbol{x}\in X,\ \exists\boldsymbol{1}\ \mbox{s.t.}\ \boldsymbol{1}\cdot\boldsymbol{x} = \boldsymbol{x}\cdot\boldsymbol{1} = \boldsymbol{x}$
+        (existence of identity element of scalar multiplication).
+      \end{enumerate}
+    \end{description}
+  \end{defi}
+\end{frame}
+
+\begin{frame}
+  \begin{defi}[linear mapping, linear independence]
+    \begin{enumerate}
+      \item[(a)] For 2 vector spaces $X, Y$ over $\mathbb{R}$,
+      \begin{align*}
+        & \mbox{mapping}\  \phi:X\to Y\ \mbox{is a {\bf linear mapping}}\\
+        & \overset{\mathrm{def}}{\Leftrightarrow}\forall\boldsymbol{x}, \boldsymbol{y}\in X, \forall\alpha, \beta\in\mathbb{R},\ \phi(\alpha\boldsymbol{x}+\beta\boldsymbol{y}) = \alpha\phi(\boldsymbol{x})+\beta\phi(\boldsymbol{y}).
+      \end{align*}
+      We denote the set of all linear mappings from $X$ to $Y$ by $\mathcal{L}(X, Y)$.
+      And,
+      \begin{align*}
+      & \mbox{linear mapping} \phi: X\to Y\ \mbox{is {\bf isomorphism}}\\
+      & \overset{\mathrm{def}}{\Leftrightarrow}\ \phi: X\to Y\ \mbox{is bijection}.\\
+      \end{align*}
+      Then, we call that X and Y are {\bf isomorphic} (as vector spaces).
+    \end{enumerate}
+  \end{defi}
+\end{frame}
+
+\begin{frame}
+  \begin{defi}[linear mapping, linear independence]
+    \begin{enumerate}
+      \item[(b)] For an infinite vector system $\{\boldsymbol{x}_1,\boldsymbol{x}_2,\ldots,\boldsymbol{x}_m\}$,
+      \begin{align*}
+        & \mbox{{\bf linear combination} of}\ \boldsymbol{x}_1,\boldsymbol{x}_2,\ldots,\boldsymbol{x}_m\\
+        & \overset{\mathrm{def}}{\Leftrightarrow}\forall\alpha_i\in\mathbb R,\ \sum_{i=1}^m\alpha_i\boldsymbol{x}_i = \alpha_1\boldsymbol{x}_1+\alpha_2\boldsymbol{x}_2+\cdots+\alpha_m\boldsymbol{x}_m.
+      \end{align*}
+      Especially,
+      \begin{align*}
+        & \mbox{vector system}\ \{\boldsymbol{x}_1,\boldsymbol{x}_2,\ldots,\boldsymbol{x}_m\}\ \mbox{is {\bf linear independence}}\\
+        & \overset{\mathrm{def}}{\Leftrightarrow}\sum_{i=1}^m\alpha_i\boldsymbol{x}_i = 0\Leftrightarrow\alpha_1=\alpha_2=\cdots=\alpha_m=0.
+      \end{align*}
+      Otherwise, if a vector system is not linear independence, we call that the vector system is {\bf linear dependence}.
+    \end{enumerate}
+  \end{defi}
+\end{frame}
+
+\begin{frame}
+  \begin{defi}[linear mapping, linear independence]
+    \begin{enumerate}
+      \item[(c)] (Expand (b) for finite vector systems.)
+    \end{enumerate}
+  \end{defi}
+\end{frame}
+
+\begin{frame}
+  \begin{proper}
+    \begin{enumerate}
+      \item[(a)] If all $m+1$ vectors $\boldsymbol{y}_1,\boldsymbol{y}_2,\ldots,\boldsymbol{y}_m,\boldsymbol{y}_{m+1}$ in vector space $X$ over $\mathbb{R}$
+      are linear combinations of $m$ vectors $\boldsymbol{x}_1,\boldsymbol{x}_2,\ldots,\boldsymbol{x}_m\in X$,
+      the vector system $\{\boldsymbol{y}_1,\boldsymbol{y}_2,\ldots,\boldsymbol{y}_m,\boldsymbol{y}_{m+1}\}$ is linear dependence.
+    \end{enumerate}
+  \end{proper}
+\end{frame}
+
+\begin{frame}
+  \begin{proper}
+    \begin{enumerate}
+      \item[(b)] {\bf maximal system}
+    \end{enumerate}
+  \end{proper}
+\end{frame}
+
+\begin{frame}
+  \begin{defi}[subspace, basis, and dimention]
+    \begin{enumerate}
+      \item[(a)] {\bf subspace}
+    \end{enumerate}
+  \end{defi}
+\end{frame}
+
+\begin{frame}
+  \begin{defi}[subspace, basis, and dimention]
+    \begin{enumerate}
+      \item[(b)] {\bf spanned subspace}
+    \end{enumerate}
+  \end{defi}
+\end{frame}
+
+\begin{frame}
+  \begin{defi}[subspace, basis, and dimention]
+    \begin{enumerate}
+      \item[(c)] {\bf basis}
+    \end{enumerate}
+  \end{defi}
+\end{frame}
+
+\begin{frame}
+  \begin{defi}[subspace, basis, and dimention]
+    \begin{enumerate}
+      \item[(d)] {\bf dimention}
+    \end{enumerate}
+  \end{defi}
+\end{frame}

@@ -1,0 +1,61 @@
+%%% Nakamura Lab. Seminar No.1 (2020/10/9)
+%%% Textbook: YAMADA Isao, Kogakunotamenokansukaiseki (Fanctional Analysis for Engineering), Surikogaku-sha, Tokyo, 2009,\\
+%%% Dirk Hundertmark, Lecture Notes Functional Analysis, Karlsruher Institut fur Technologie (KIT), Baden-Wurttemberg, 2013
+
+\documentclass[12pt, aspectratio=169, dvipdfmx]{beamer}
+\usepackage{bxdpx-beamer}
+
+%%% define themes (if delete these, set "default")
+% \usetheme[progressbar = frametitle]{metropolis}
+\usepackage{bm}
+\usepackage{ascmac}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{comment}
+
+%%% definie theorems
+\theoremstyle{definition}
+\newtheorem{theo}{Theorem}[subsection]
+\newtheorem{defi}[theo]{Definition}
+\newtheorem{lemm}[theo]{Lemma}
+\newtheorem{axio}[theo]{Axiom}
+\newtheorem{coro}[theo]{Corollary}
+\newtheorem{prop}[theo]{Proposition}
+\newtheorem{prob}[theo]{Problem}
+\newtheorem{exer}[theo]{Exercise}
+\newtheorem{proper}[theo]{Property}
+
+
+%%% \qed を自動で入れない proof 環境を再定義
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  \normalfont
+  \topsep6\p@\@plus6\p@ \trivlist
+  \item[\hskip\labelsep{\bfseries #1}\@addpunct{\bfseries.}]\ignorespaces
+}{%
+  \endtrivlist
+}
+\renewcommand{\proofname}{Proof}
+\makeatother
+
+%%% information
+\title{Nakamura Labo. Seminar No.1}
+\subtitle{Limit of Sequence of Real Numbers\\
+and Vector Spaces}
+\author{171-T7710\\
+NARITA Fumiya}
+\institute{Shiromoto Lab.,\\
+Department of Mathematical Engineering,\\
+Faculty of Engineering,\\
+Kumamoto University}
+\date{}
+
+%%%
+\begin{document}
+%%% include slide
+\include{20201009_01_slide.tex}
+%%%
+\end{document}
